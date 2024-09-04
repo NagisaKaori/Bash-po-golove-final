@@ -1,0 +1,16 @@
+echo "nylevoi:"
+for i in {1..1}; do
+        username="user_$i"
+        bdname="base_$i"
+        password=$(openssl rand -base64 5)
+        echo "$password"
+
+temp_pw=$(echo "$password" | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 10000 -pass pass:"Secret@123#");
+echo "perviy:" 
+echo "$temp_pw"
+temp_pw2=$(echo "$temp_pw" | openssl enc -aes-256-cbc -md sha512 -d -a -pbkdf2 -iter 10000 -pass pass:"Secret@123#");
+echo "vtoroi:" 
+echo "$temp_pw2"
+done 
+
+
