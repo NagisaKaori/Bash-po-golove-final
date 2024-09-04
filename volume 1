@@ -1,8 +1,8 @@
-nano script.sh //  create file
-chmod +x script.sh // sdelaet ispolnyaemim
-/script.sh //  launch
+nano script.sh
+chmod +x script.sh
+./script.sh 
 
-#!/bin/bash // первая строка любого скрипта
+#!/bin/bash
 mysql -u root -p'root' -e "CREATE DATABASE USER_DB;"
 mysql -u root -p'root' -e "USE USER_DB; CREATE TABLE USERS (ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255), PASSWORD VARCHAR(255));"
 
