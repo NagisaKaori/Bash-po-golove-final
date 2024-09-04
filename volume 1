@@ -7,9 +7,9 @@ mysql -u root -p'root' -e "CREATE DATABASE USER_DB;"
 mysql -u root -p'root' -e "USE USER_DB; CREATE TABLE USERS (ID INT AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(255), PASSWORD VARCHAR(255));"
 
 for i in {1..10}; do 
-  username="user_$i" // создаем пользователетей user1, user2,...
-  bdname="base_$i" // создает базы 
-  password=$(openssl rand -base64 10) // создает радомный пароль
+  username="user_$i"
+  bdname="base_$i"
+  password=$(openssl rand -base64 10)
 
 mysql -u root -p'root' -e "CREATE USER $username@localhost IDENTIFIED BY $password;"
 mysql -u root -p'root' -e "USE USER_DB; INSERT INTO USERS(NAME, PASSWORD) VALUES ('$USERNAME', '$PASSWORD');"
