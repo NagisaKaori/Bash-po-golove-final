@@ -7,5 +7,5 @@ echo $password
 
 temp_pw=$(echo $password | openssl enc -aes-256-cbc -md sh512 -a -pbkdf2 -iter 100000 -salt -pass pass:Secret@123#)
 
-mysql -u root -p'root' -e "USE USER_DB1; UPDATE USERS SET password = '$r' WHERE id=$i;"
+mysql -u root -p'root' -e "USE USER_DB1; UPDATE USERS SET password = '$temp_pw' WHERE id='$i';"
 done
